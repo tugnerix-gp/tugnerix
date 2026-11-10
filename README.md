@@ -1,0 +1,286 @@
+# Tugnerix - FVWM Retro Desktop 🖥️
+
+Tugnerix ist eine Fvwm3 Konfiguration um ein einfaches und übersichtliches Benutzererlebnis zu realisieren. Es ist ein reiner 2D Desktop (keine Compositing Elemente wie Schatten usw) und soll auf älteren Computern und in Virtuellen Maschinen flüssig laufen. Das Aussehen orientiert sich an älteren Betriebsystemen.
+
+## 📐 Design-Philosophie
+
+* **Klassische FVWM-Rahmen:** Es werden bewusst dicke Fensterrahmen im Motif Stil verwendet. Diese trennen den Fensterinhalt optisch klar ab und lassen sich gut mit der Maus anklicken.
+* **Reduzierte Titelleisten-Buttons:** Es gibt bewusst **keinen Schließen-Button (X)** es sind nur 3 Buttons vorhanden:
+  * **Links (Menü-Button):** Öffnet das Fenstermenü (darüber kann das Fenster auch geschlossen werden).
+  * **Rechts 1 (Minimieren/Iconify):** Lässt das Fenster als Icon auf dem Desktop verschwinden.
+  * **Rechts 2 (Maximieren):** Schaltet das Fenster auf Vollbild und wieder zurück.
+* **Konsistenz:** Der Fensterrahmen und die Menüs bleiben für jeden Look in ihrer Funktion identisch – lediglich die Farben und das Panel ändern sich. Der Benutzer behält so immer denselben vertrauten Mechanismus.
+
+---
+
+## 🎨 Verfügbare Looks
+
+Die Looks orientieren sich optisch an klassischen Desktops, sollen aber nicht das Aussehen der alten Systeme exakt kopieren.
+Der Benutzer muss sich nicht aus unzähligen Fensterdekorationen, Hintergründen, Widget Themen, seinen Desktop mühsam zusammenkonfigurieren sondern kann aus vorgegeben Looks wählen. 
+
+| Look | Beschreibung | Icons / Besonderheit |
+| :--- | :--- | :--- |
+| **Default** | Der Standard-Look im Dark Mode | buuf-nestor Icons |
+| **Neon** | Ähnlich dem Standard-Look, aber mit grelleren Farben | BeautyLine Icons |
+| **Irix** | Inspiriert von Silicon Graphics Irix | KDE Modern Classic Icons |
+| **CDE Unix** | Klassische Common Desktop Environment (CDE) Optik | CDE-Reborn / NsCDE bzw Obsidian Icons |
+| **CDE Solaris** | Farblich an das CDE von SUN Solaris angelehnt | CDE-Reborn / NsCDE bzw Obsidian Icons |
+| **CDE Vms** | Farblich an das CDE von DEC angelehnt | CDE-Reborn / NsCDE bzw Obsidian Icons |
+| **Amiga OS** | Angelehnt an das klassische AmigaOS 2.0 / 3.0 | Obsidian Icons |
+| **Nextstep** | Legendäre Optik des NeXTSTEP-Betriebssystems | GNUstep Icons |
+| **Windows NT** | Optik angelehnt an Windows NT | Chicago95 Icons |
+
+---
+
+## 📦 Installation
+
+⚠️ **Vorsicht!** In diesem Repository befinden sich versteckte Verzeichnisse und Dateien (wie zum Beispiel `.fvwm` welches die gesamte FVWM-Konfiguration enthält).
+
+1. **Basissystem aufsetzen:**
+
+Installiere ein minimales System (bei Debian z. B. bei der Installation alles abwählen bis auf die *Standard-Systemwerkzeuge*).
+
+2. **Vorbereitung für den Checkout:**
+
+Installiere `sudo` und `subversion`.
+
+```bash
+   su -l
+   apt update
+   apt upgrade
+   apt install sudo
+   usermod -aG sudo <user>
+   exit ## su
+   exit ## logout
+   ## and login again
+   sudo apt install subversion
+   ```
+
+3. **Repository auschecken:**
+
+Erstelle ein Installationsverzeichnis mit den Namen `.tugnerix` im Home-Verzeichnis und checke das Projekt darin aus:
+
+```bash
+   mkdir ~/.tugnerix
+   cd ~/.tugnerix
+   svn checkout svn://one/Tugnerix/trunk 
+   cd trunk/debian
+   ```
+⚠️ **Achtung!** Der `.tugnerix` Ordner ist nicht die Repository. In `.tugnerix` wird die Repository z. B. als `trunk` abgelegt aber auch noch zu installierende Icons und Themes!
+
+
+Für jede unterstützte Distribution existiert ein eigener Ordner mit Shell-Skripten.
+
+⚠️ **Achtung!** Die Shell Scripte beschreiben den Ablauf, sie enthalten Schritte die auch von Hand auszuführen sind.
+Zum Beispiel können nicht alle Icon Sets per git heruntergeladen werden, sondern einige müssen per Hand als Archiv heruntergeladen und entpackt werden. Daher vorher immer die Shell Scripte lesen! 
+
+4. **X Server installieren:**
+
+Führe folgende Shell-Skripte im Unterordner der genutzten Distribution aus. Danach ist der X-Server bereit.
+
+(Script `inst_010_sudo.sh`: dient nur als Anleitung für die bereits ausgeführten Schritte.)
+Script `inst_020_shell.sh`: installiert wenige Shell Programme.
+Script `inst_030_X.sh`: installiert X Server, FVWM, PCmanFM und weitere notwendige Pakete für eine minimale X Umgebung.  
+
+⚠️ **Achtung!** lightdm wird nicht automatisch mit installiert sondern muss per Hand installiert werden.
+
+5. **FVWM Konfiguration installieren:**
+
+⚠️ **Achtung!** Die `.fvwm` Konfiguration muss per Hand installiert werden bevor das Script `inst_031_X_config.sh` ausgeführt wird.
+Es gibt 3 Möglichkeiten:
+
+a) Erzeugen Sie einen symbolischen Link `.fvwm->~/.tugnerix/trunk/.fvwm` im Homeverzeichnis.
+   ```bash
+   ln -s ~/.tugnerix/trunk/.fvwm ~/.fvwm
+   ```
+oder b) Kopieren Sie den `.fvwm` Ordner im Repository Verzeichnis ins Homeverzeichnis.
+oder c) Checken sie nur den `.fvwm` Ordner auch im Homeverzeichnis aus.
+
+6. **X Konfiguration installieren:**
+
+Script `inst_031_X_config.sh`: Installiert die notwendigen Konfigurationen wie `.xinitrc` usw.  
+
+7. **X Server starten:**
+
+Entweder mit `startx` oder lightdm (ausloggen und erneut einloggen).
+
+8. **Internet Programme wie Firefox usw installieren:**
+
+Script `inst_040_internet.sh`: Installiert notwendige Programme für den Download.
+
+9. **Icons und Themes installieren:**
+
+Script `inst_041_icon_themes.sh`: Dient als Anleitung.
+
+Das im Hauptordner platzierte Script `inst_icons_themes.sh` installiert die benötigten Icons und Themes im `.tugnerix` Ordner.
+
+Folgende Iconsets müssen per Hand installiert werden:
+a) Buuf For Many Desktops
+b) KDE Modern Classic
+c) GNUstep
+
+Mit `inst_icons_themes_symlinks.sh` werden die etsprechenden symbolischen Links in `~/.local/share/icons` und `~/.local.shar/themes` erzeugt.
+
+*Hinweis:* Sobald die Icons und Themes installiert sind, kannst du in `lxappearance` (Einstellungen->Erscheinungsbild) nicht nur die Icons, sondern auch das jeweilige Widget-Design auswählen!
+
+
+10. **Optionale Programme:**
+
+Um weitere Anwendungen zu installieren, führe die optionalen Schritte in den jeweiligen Distributionsordnern aus.
+
+---
+
+###  🎨 Zusatzinformationen für Icons und GTK-Themes aus GitHub laden
+
+```bash
+# ----------------------------------------------------
+# TEIL 1: ICON SETS INSTALLIEREN
+# ----------------------------------------------------
+
+# Die Iconsets sollten in ~/.local/share/icons gespeichert werden.
+# Da die heruntergeladenen Iconsets zum Teil in Unterordner platziert sind,
+# werden sie in ~/.tugnerix/icons gespeichert und
+# in ~/.local/share/icons werden symbolische Links
+# auf die entsprechenden Ordner in ~/.tugnerix/icons angelegt.
+# Manche Iconsets enthalten auch Themen. 
+
+
+##############
+# Default-Look
+##############
+
+# Es gibt zwei Varianten, Buuf For Many Desktops (buuf-nestor) und
+# Buuf (buuf).
+# buuf-nestor wird im default look verwendet.
+
+# Buuf For Many Desktops (buuf-nestor) Icons:
+# Falls das Git Repository nicht funktioniert dann
+# von Gnome-look manuel herunterladen:
+# Google Suche: site:gnome-look.org Buuf For Many Desktops Icons full theme
+git clone --depth 1 https://git.disroot.org/eudaimon/buuf-nestort.git
+
+# Buuf  Icons:
+git clone --depth 1 https://github.com/oxayotl/buuf-icon-theme
+
+
+###########
+# Neon-Look
+###########
+
+# BeautyLine Icons:
+git clone --depth 1 https://github.com/gvolpe/BeautyLine
+
+
+###############
+# Irix-Look
+###############
+
+# SGIenhanced Icons, kein gtk icon theme,
+# es müsste erst daraus erzeugt werden!
+# Diese Icons sehen auch nicht sehr schön aus,
+# daher ersetzt durch KDE-Modern-Classic Icons.
+git clone --depth 1 https://github.com/jujum4n/sgi-enhanced
+
+# KDE Modern Classic (by NZOOMED), schöne Icons die gut zu SGI Irix passen,
+# da sie ähnlich den Irix Icons in einem 3D Stil gehalten sind.
+# Google Suche: site:gnome-look.org Modern Classic Icons full theme
+
+# Ein erweitertes KDE Modern Classic Icon Set. 
+# https://download.kde.org/Attic/4.14.3/src/kdeartwork-4.14.3.tar.xz
+
+
+###############
+# CDE-Look
+###############
+
+# es gibt zwei Icon Sets, CDE-Reborn und NsCDE.
+# Es werden aber die Obsidian Icons verwendet.
+
+# CDE-Reborn Icons:
+# Google Suche: site:gnome-look.org CDE Icons full theme
+
+# NsCDE Icon Set, kann aus einer git repository installiert werden:
+git clone --depth 1 https://github.com/NsCDE/NsCDE
+# oder ist in einem ganzen CDE Theme mit Panel in einem Unterordner enthalten:
+git clone --depth 1 https://github.com/netrunner01/cde
+
+
+###############
+# Amiga-Look
+###############
+
+# Amiga MagicWB Icons, kein gtk icon theme,
+# das müsste erst daraus erzeugt werden:
+git clone --depth 1 https://github.com/tanshoku/amiga-MWB-icons
+
+# Daher werden moderne Icons von dem Obsidian Theme verwendet.
+# Obsidian wird über die debian Paketverwaltung installiert.
+
+
+###############
+# Nextstep-Look
+###############
+
+# GNUstep Icons:
+# Google Suche: site:gnome-look.org GNUstep Icons full theme
+
+
+#################
+# Windows NT-Look
+#################
+
+# Windows 2000 / SE98 Icons:
+# Google Suche: site:gnome-look.org SE98 Icons full theme
+git clone --depth 1 https://github.com/nestoris/Win98SE.git
+
+# Chicago95 Icon Sets plus Theme:
+git clone --depth 1 https://github.com/grassmunk/chicago95
+
+# WinClassic passierend auf Chicago95:
+git clone --depth 1 https://github.com/matthewmx86/WinClassic_icons
+
+
+# ----------------------------------------------------
+# TEIL 2: GTK-THEMES INSTALLIEREN
+# ----------------------------------------------------
+
+# Die Themes sollten in ~/.local/share/themes gespeichert werden.
+# Da die heruntergeladenen Themes zum Teil in Unterordner platziert sind,
+# werden sie in ~/.tugnerix/themes gespeichert und
+# in ~/.local/share/themes werden symbolische Links
+# auf die entsprechenden Ordner in ~/.tugnerix/themes angelegt.
+
+# Irixium GTK-Theme (SGI/Irix Look):
+git clone --depth 1 https://github.com/Pyanyaleri/Irixium
+
+# CDE / Motif GTK-Theme):
+git clone --depth 1 https://github.com/josvanr/cde-motif-theme
+
+# GNUstep Theme (Nextstep-Look):
+git clone --depth 1 https://github.com/raorn/OneStepBack
+
+# Grau Themen:
+git clone --depth 1 https://github.com/gpetters94/Shades-of-gray-theme
+
+```
+
+---
+
+## 🎨 Design-Assets & Icon-Credits
+
+In dieser Konfiguration sind einige Direktstarter-Icons sowie Hintergrund-Tiles (für SGI- und CDE-Looks) fest integriert, damit das System direkt nach der Installation einsatzbereit ist. Die verwendeten Grafiken stammen aus folgenden freien und Open-Source-Projekten:
+
+| Icon-Set / Asset | Lizenz | Ursprung / Anmerkung |
+| :--- | :--- | :--- |
+| **buuf-nestor / buuf-nestor** | CC BY-NC-SA 4.0 | Original-Icons von *Mattahan* (Paul Davey). Keine kommerzielle Nutzung erlaubt. |
+| **BeautyLine** | GPL-3.0 | Modernes, freies Line-Art-Iconset (u.a. bekannt durch Garuda Linux). |
+| **CDE-Reborn** | GPL / LGPL | Community-Iconset, abgeleitet aus historischen Open-Source KDE-Beständen. |
+| **NsCDE** | GPL-3.0 | Aus dem offiziellen *Not so Common Desktop Environment* Projekt. |
+| **GNUstep** | LGPL-2.1+ | Standard-Icons des freien *GNUstep* (NeXTSTEP-Nachbau) Projekts. |
+| **SGIenhanced** | GNU GPL | Modifizierte IRIX/SGI-Icons für den Silicon Graphics Look. |
+| **Win2k (KDE Icon Set)** | GPL / LGPL | Retro-Set, das auf den klassischen Linux-Icons der KDE-2/3-Ära basiert. |
+| **amiga-MWB-icons-main** | Shareware (historisch) | PNG-Konvertierung der klassischen Amiga *MagicWB* Icons von Martin Huttenloher. |
+
+### ℹ️ Rechtliche Hinweise & Quellen:
+* **Amiga MagicWB:** Die Icons basieren auf der Arbeit von Martin Huttenloher. Dieses Setup nutzt die von der Community bereitgestellten PNG-Konvertierungen für den nicht-kommerziellen Retro-Desktop-Gebrauch. (MagicWB Website: http://sasg.com | Wikipedia: https://wikipedia.org)
+* **Buuf Artwork:** Alle Rechte an den Buuf-Grafiken liegen bei Mattahan. Die Nutzung erfolgt im Rahmen der Creative Commons Richtlinien für private Software-Konfigurationen.

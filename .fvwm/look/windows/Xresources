@@ -1,0 +1,63 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! xterm !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Use a truetype font and size.
+xterm*faceName: Monospace
+xterm*faceSize: 11
+xterm*saveLines: 2048
+xterm*scrollBar: true
+xterm*scrollbar.width: 10
+!xterm*reverseVideo: true
+! Foreground color: light grey
+! Take care for the $LS_COLORS
+xterm*foreground: rgb:ff/ff/ff
+! Background color: very dark blue
+xterm*background: rgb:00/00/00
+!xterm*color0: rgb:ef/ef/ef
+! ...
+!xterm*color15: rgb:ef/ef/ef
+! disable bold font faces, instead make text white.
+!xterm*colorBDMode: true
+!xterm*colorBD: rgb:ff/ff/ff
+! disable underlined text, instead make it light pink.
+!xterm*colorULMode: true
+!xterm*colorUL: rgb:ff/00/87
+! disable underlined text, instead make it light green.
+!xterm*colorITMode: true
+!xterm*colorIT: rgb:87/ff/00
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! xosview !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+xosview*geometry:         120x160
+xosview*foreground:       rgb:00/00/00
+xosview*background:       rgb:00/00/84
+xosview*font:             5x7
+xosview*labels:           True
+xosview*usedlabels:       False
+xosview*captions:         False
+xosview*meterColor:       rgb:ff/ff/ff
+xosview*meterLabelColor:  rgb:ff/ff/ff
+xosview*load:             False
+xosview*cpu:              True
+xosview*cpuFormat:        all
+xosview*cpuFields:        USR/SYS
+xosview*cpuFreeColor:     rgb:2b/4e/5e
+xosview*cpuUserColor:     rgb:7b/e9/db
+xosview*cpuSystemColor:   rgb:FF/7D/AE
+xosview*mem:              True
+xosview*memFreeColor:     rgb:2b/4e/5e
+xosview*memUsedColor:     rgb:7b/e9/db
+xosview*memBufferColor:   rgb:FF/7D/AE
+xosview*memSlabColor:     rgb:7b/e9/db
+xosview*memCacheColor:    rgb:FF/7D/AE
+xosview*swap:             False
+xosview*page:             True
+xosview*pageIdleColor:    rgb:2b/4e/5e
+xosview*pageInColor:      rgb:7b/e9/db
+xosview*pageOutColor:     rgb:FF/7D/AE
+xosview*gfx:              False
+xosview*net:              True
+xosview*netBackground:    rgb:2b/4e/5e
+xosview*netInColor:       rgb:7b/e9/db
+xosview*netOutColor:      rgb:FF/7D/AE
+xosview*disk:		  True
+xosview*diskIdleColor:    rgb:2b/4e/5e
+xosview*diskReadColor:    rgb:7b/e9/db
+xosview*diskWriteColor:   rgb:FF/7D/AE

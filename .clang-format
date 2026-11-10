@@ -1,0 +1,10 @@
+# .clang-format
+BasedOnStyle: LLVM
+
+# Einrückung auf 4 Spaces einstellen
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Klammern bleiben immer oben in der gleichen Zeile (wie bei Google/LLVM)
+BreakBeforeBraces: Attach
