@@ -1,0 +1,16 @@
+# Linux-Systemdateien
+.directory
+.Trash-*
+*~
+
+# Allgemeine Backups und temporäre Dateien von Editoren
+*.bak
+*.tmp
+*.log
+*.swp
+
+# Falls du IDEs wie VS Code oder IntelliJ nutzt
+.vscode/
+.idea/
+
+
