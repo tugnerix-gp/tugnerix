@@ -1,3 +1,6 @@
+# zur Laufzeit angelegte Verzeichnisse
+.fvwm/icons/
+
 # Linux-Systemdateien
 .directory
 .Trash-*

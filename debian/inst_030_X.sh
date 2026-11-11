@@ -17,7 +17,7 @@ sudo apt install \
      network-manager-applet \
      pcmanfm \
      xdg-user-dirs \
-     xdg-user_dirs-gtk \
+     xdg-user-dirs-gtk \
      lxappearance \
      mate-themes \
      darkblood-gtk-theme \
