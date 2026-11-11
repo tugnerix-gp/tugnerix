@@ -14,13 +14,13 @@ usermod -aG sudo <user>
 exit ##su
 exit ##logout
 ##and login again
-sudo apt install subversion
+sudo apt install git
 ## Achtung, der .tugnerix Ordner ist nicht die Repository,
-## in .tugnerix wird die repository zB als trunk abgelegt
+## in .tugnerix wird die repository zB als tugnerix abgelegt
 ## aber auch noch zu installierende Icons und Themes!
 mkdir ~/.tugnerix
 cd ~/.tugnerix
-svn checkout svn://one/tugnerix/trunk
-cd trunk/debian
+git clone https://github.com/tugnerix-gp/tugnerix.git
+cd tugnerix/debian
 
 # führe weiter Installations Scripte aus

@@ -2,14 +2,15 @@
 
 ## Installation von X Konfiguration und FVWM Konfiguration
 
-## Repository sollte nach ~/.tugnerix/trunk ausgecheckt worden sein!
-## Wir befinden uns im trunk/debian Ordner!
-## !!!!!! muss vorher mit der Hand gemacht werden:
-## 1) einen link ~/.fvwm auf ~/.tugnerix/trunk/.fvwm anlegen (empfohlen)
-## oder 2) ~/.tugnerix/trunk/.fvwm nach ~/.fvwm kopieren (Updates und Commits gehen verloren)
+## Repository sollte nach ~/.tugnerix/tugnerix ausgecheckt worden sein!
+## Wir befinden uns im tugnerix/debian Ordner!
+## !!!!!! .fvwm im Homeverzeichnis anlegen muss vorher mit der Hand gemacht werden:
+## 1) einen link ~/.fvwm auf ~/.tugnerix/tugnerix/.fvwm anlegen (empfohlen)
+## oder 2) ~/.tugnerix/tugnerix/.fvwm nach ~/.fvwm kopieren (Updates und Commits gehen verloren)
 ## oder 3) .fvwm in ~/ auschecken
 ## !!!!!!
 
+# ln -s ~/.tugnerix/tugnerix/.fvwm ~/.fvwm
 cp .xinitrc ~/
 cp .xsession ~/
 cp -r ../.config ~/

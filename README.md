@@ -42,7 +42,7 @@ Installiere ein minimales System (bei Debian z. B. bei der Installation alles ab
 
 2. **Vorbereitung für den Checkout:**
 
-Installiere `sudo` und `subversion`.
+Installiere `sudo` und `git`.
 
 ```bash
    su -l
@@ -53,7 +53,7 @@ Installiere `sudo` und `subversion`.
    exit ## su
    exit ## logout
    ## and login again
-   sudo apt install subversion
+   sudo apt install git
    ```
 
 3. **Repository auschecken:**
@@ -63,10 +63,10 @@ Erstelle ein Installationsverzeichnis mit den Namen `.tugnerix` im Home-Verzeich
 ```bash
    mkdir ~/.tugnerix
    cd ~/.tugnerix
-   svn checkout svn://one/Tugnerix/trunk 
-   cd trunk/debian
+   git clone https://github.com/tugnerix-gp/tugnerix.git 
+   cd tugnerix/debian
    ```
-⚠️ **Achtung!** Der `.tugnerix` Ordner ist nicht die Repository. In `.tugnerix` wird die Repository z. B. als `trunk` abgelegt aber auch noch zu installierende Icons und Themes!
+⚠️ **Achtung!** Der `.tugnerix` Ordner ist nicht die Repository. In `.tugnerix` wird die Repository z. B. als `tugnerix` abgelegt aber auch noch zu installierende Icons und Themes!
 
 
 Für jede unterstützte Distribution existiert ein eigener Ordner mit Shell-Skripten.
@@ -89,12 +89,13 @@ Script `inst_030_X.sh`: installiert X Server, FVWM, PCmanFM und weitere notwendi
 ⚠️ **Achtung!** Die `.fvwm` Konfiguration muss per Hand installiert werden bevor das Script `inst_031_X_config.sh` ausgeführt wird.
 Es gibt 3 Möglichkeiten:
 
-a) Erzeugen Sie einen symbolischen Link `.fvwm->~/.tugnerix/trunk/.fvwm` im Homeverzeichnis.
+a) Erzeugen Sie einen symbolischen Link `.fvwm->~/.tugnerix/tugnerix/.fvwm` im Homeverzeichnis.
    ```bash
-   ln -s ~/.tugnerix/trunk/.fvwm ~/.fvwm
+   cd ~/
+   ln -s .tugnerix/tugnerix/.fvwm
    ```
-oder b) Kopieren Sie den `.fvwm` Ordner im Repository Verzeichnis ins Homeverzeichnis.
-oder c) Checken sie nur den `.fvwm` Ordner auch im Homeverzeichnis aus.
+b) Kopieren Sie den `.fvwm` Ordner im Repository Verzeichnis ins Homeverzeichnis.
+c) Checken sie nur den `.fvwm` Ordner auch im Homeverzeichnis aus.
 
 6. **X Konfiguration installieren:**
 
