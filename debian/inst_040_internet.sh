@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## inst_31_X: internet  X applications
+## install internet X applications
 
 sudo apt install \
      filezilla \

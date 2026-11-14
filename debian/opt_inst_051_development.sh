@@ -1,5 +1,8 @@
 #!/bin/bash
-## inst_041_development: editors, programming languages
+
+## development tools: programming lanquage (c, c++), tools, editors
+## also install opt_inst_***_kernel.sh (without building the kernel),
+## this includes some additional tools
 
 sudo apt install \
      gcc \
@@ -9,10 +12,8 @@ sudo apt install \
      gperf \
      fakeroot \
      vim \
+     hexedit \
      emacs-lucid \
      gnutls-bin \
      elpa-magit \
      clang-format
-
-
-

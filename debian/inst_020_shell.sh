@@ -3,14 +3,15 @@
 ## Installation von wenigen wichtigen Shell Programmen
 
 sudo apt install \
+     firmware-linux-nonfree \
      nano \
      mc \
      htop \
      screenfetch \
      ssh \
-     git\
-     subversion\
-     cvs\
+     git \
+     subversion \
+     cvs \
      wget \
      rsync \
      ufw \
