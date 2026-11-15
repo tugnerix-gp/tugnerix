@@ -13,7 +13,9 @@
 # ln -s ~/.tugnerix/tugnerix/.fvwm ~/.fvwm
 cp .xinitrc ~/
 cp .xsession ~/
+cp .xprofile ~/
 cp -r ../.config ~/
+cp -r ../.ssh ~/
 cp -r ../.emacs.d ~/
 cp ../.clang-format ~/
 cp -r ../.local ~/

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Installation von wenigen wichtigen Shell Programmen
+## Installation von wenigen wichtigen Shell Programmen.
 
 sudo apt install \
      firmware-linux-nonfree \
@@ -8,7 +8,6 @@ sudo apt install \
      mc \
      htop \
      screenfetch \
-     ssh \
      git \
      subversion \
      cvs \
@@ -20,3 +19,9 @@ sudo apt install \
      7zip \
      lhasa \
      bzip2
+
+## Achtung, ssh client und server werden installiert
+## und der ssh server gestartet.
+## Auskommentiern falls ssh nicht instlliert werden soll.
+sudo apt install \
+     ssh
