@@ -16,17 +16,15 @@ cp .xsession ~/
 cp -r ../.config ~/
 cp -r ../.emacs.d ~/
 cp ../.clang-format ~/
-cd ~/
-ln -s ~/.fvwm/looklink/Xresources .Xresources
+cp -r ../.local ~/
+update-desktop-database ~/.local/share/applications
 
-## Der X Server kann nun entweder mit startx oder lightdm gestartet werden.
+## Link auf Xresources anlegen
+ln -s ~/.fvwm/looklink/Xresources ~/.Xresources
 
 ## Verzeichnisstruktur im Homeverzeichnis anlegen
 xdg-user-dirs-update
 ## oder als Gui Tool
 #xdg-user-dirs-gtk-update
 
-#####------------- end
-## ~/.local/share/applications kopieren ?
-## Nicht notwendig?
-##update-desktop-database ~/.local/share/applications
+## Der X Server kann nun entweder mit startx oder lightdm gestartet werden.

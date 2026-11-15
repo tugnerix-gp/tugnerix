@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=System Logs (lnav)
+Name[de]=Systemprotokolle (lnav)
+Comment=Colorized system log viewer in terminal
+Comment[de]=Farbige Systemprotokolle im Terminal anzeigen
+Exec=xterm -title "Systemprotokolle (lnav)" -fa "Monospace" -fs 11 -bg "#1e1e1e" -fg "#dcdcdc" -e sh -c "journalctl -n 1000 -f | lnav"
+Icon=utilities-terminal
+Terminal=false
+Type=Application
+Categories=System;Monitor;

@@ -34,8 +34,18 @@ sudo apt install \
      udisks2 \
      engrampa \
      gparted \
-     gsmartcontrol
+     gsmartcontrol \
+     lxpolkit \
+     pass \
+     pass-otp \
+     gnupg \
+     passwordsafe \
+     gnome-logs \
+     lnav
 	 
+
+## für gnome-logs und lnav notwendig:
+sudo usermod -aG adm, system-journal $USER 
 
 ## Für grafisches Login muss lightdm installiert werden!
 #sudo apt install \
