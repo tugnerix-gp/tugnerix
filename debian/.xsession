@@ -12,5 +12,8 @@ fi
 ### load Style :
 xrdb -load ~/.Xresources
 
+## start ssh agent
+eval "$(ssh-agent -s)"
+
 ### select window manager:
 exec fvwm
