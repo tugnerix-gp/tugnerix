@@ -45,7 +45,7 @@ sudo apt install \
 	 
 
 ## für gnome-logs und lnav notwendig:
-sudo usermod -aG adm, systemd-journal $USER 
+sudo usermod -aG adm,systemd-journal $USER 
 
 ## Für grafisches Login muss lightdm installiert werden!
 #sudo apt install \
