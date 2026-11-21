@@ -18,7 +18,11 @@ sudo apt install \
      zip \
      7zip \
      lhasa \
-     bzip2
+     bzip2 \
+     pass \
+     pass-otp \
+     lnav
+
 
 ## Achtung, ssh client und server werden installiert
 ## und der ssh server gestartet.

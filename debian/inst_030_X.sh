@@ -23,25 +23,22 @@ sudo apt install \
      xdg-user-dirs \
      xdg-user-dirs-gtk \
      lxappearance \
+     lxpolkit \
      mate-themes \
-     darkblood-gtk-theme \
      gnome-icon-theme \
      mate-icon-theme \
      obsidian-icon-theme \
      gvfs \
      gvfs-backends \
      ntfs-3g \
+     fuse \
+     libfuse2t64 \
      udisks2 \
      engrampa \
      gparted \
      gsmartcontrol \
-     lxpolkit \
-     pass \
-     pass-otp \
      gnupg \
-     passwordsafe \
-     gnome-logs \
-     lnav
+     passwordsafe
 	 
 
 ## für gnome-logs und lnav notwendig:
